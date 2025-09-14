@@ -62,10 +62,11 @@ We'll install the official package to ensure you get updates and stability.
    ```
 
    ```sh
-   sudo mkdir -p /etc/apt/keyrings
-   curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg | sudo tee /etc/apt/keyrings/cloudflare-main.gpg > /dev/null
-   echo "deb [signed-by=/etc/apt/keyrings/cloudflare-main.gpg\] https://pkg.cloudflare.com/cloudflared $(lsb_release -cs) main" | sudo tee  /etc/apt/sources.list.d/cloudflared.list 
-   # on Ubuntu this should be like this:
+   curl -L https://pkg.cloudflare.com/cloudflare-main.gpg | sudo tee /usr/share/keyrings/cloudflare-archive-keyring.gpg >/dev/null
+   echo "deb [signed-by=/usr/share/keyrings/cloudflare-archive-keyring.gpg] https://pkg.cloudflare.com/cloudflared $(lsb_release -cs) main" | sudo tee  /etc/apt/sources.list.d/cloudflared.list 
+   # would this work on Ubuntu? this should be like this:
+   # sudo mkdir -p /etc/apt/keyrings
+   # curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg | sudo tee /etc/apt/keyrings/cloudflare-main.gpg > /dev/null
    # echo 'deb \[signed-by=/etc/apt/keyrings/cloudflare-main.gpg\] https://pkg.cloudflare.com/cloudflared focal main' | sudo tee /etc/apt/sources.list.d/cloudflared.list 
    ```
 
