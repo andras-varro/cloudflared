@@ -93,7 +93,7 @@ cloudflared version 2025.x.x (built ...)
 
 ### Step 3: Authenticate with Cloudflare
 
-This step connects your local machine to your Cloudflare account via your browser.
+This step connects your local machine to your Cloudflare account via your browser. You need to be logged in to cloudflare for this to work. If you are not logged in the browser which will pop up, and log in, then the selector will not be shown.
 
 #### Instructions step 3
 
@@ -103,9 +103,9 @@ Run the following command:
 cloudflared tunnel login
 ```
 
-- This will open a browser window asking you to log into Cloudflare.
+- This will open a browser window. (If a login window pops up, the workflow might not work. Log in, go back to the terminal, and restart try again.)
 
-- After logging in, it will show you a list of your domains.
+- It will show you a list of your domains.
 
 - Select something.org.
 
