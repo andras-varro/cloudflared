@@ -5,7 +5,7 @@ Step-by-step instructions to configure a local service to run as a web app over 
 
 - I have a cloudflare domain name something.org
 
-- I use Ubuntu 24.04
+- I use Ubuntu 24.04/Raspberry Pi OS
 
 - I want to access my service at testit.something.org
 
@@ -290,17 +290,30 @@ sudo cp ~/.cloudflared/config.yml /etc/cloudflared/
 sudo cp ~/.cloudflared/9e137011-ae9a-4800-80b8-f4ca6e2dcda3.json /etc/cloudflared/
 ```
 
-These are the two files referenced in your config:
+#### Step 8.2.1 Update your config.yaml
 
-a. /etc/cloudflared/config.yml
+If you want to be sure, that the service will access the correct files, and they are safe and secure, update the newly copied config.yaml:
 
-b. /etc/cloudflared/9e137011-ae9a-4800-80b8-f4ca6e2dcda3.json
+```sh
+sudo nano /etc/cloudflared/config.yml
+```
+
+change the reference to the correct file (/home/user/.cloudflared/8e137011-ae9a-4800-90b8-f4ca6e2dcda3.json -> /etc/cloudflared/8e137011-ae9a-4800-90b8-f4ca6e2dcda3.json)
+
+```txt
+   tunnel: 8e137011-ae9a-4800-90b8-f4ca6e2dcda3
+   credentials-file: /etc/cloudflared/8e137011-ae9a-4800-90b8-f4ca6e2dcda3.json
+   ingress:
+    - hostname: testit.something.org
+      service: http://localhost:8001
+    - service: http_status:404
+   ```
 
 #### Step 8.3: Update permissions (just in case)
 
 ```sh
 sudo chown -R root:root /etc/cloudflared
-sudo chmod 600 /etc/cloudflared/\*
+sudo chmod 600 /etc/cloudflared/*
 ```
 
 #### Step 8.4: Install the systemd service
@@ -374,3 +387,10 @@ And some logs showing that your tunnel started successfully.
    ```sh
    sudo systemctl stop cloudflared
    ```
+### Last step
+
+If everything works as expected, you can remove the complete ~/.cloudflare folder
+
+```sh
+rm -rf ~/.cloudflared
+```
