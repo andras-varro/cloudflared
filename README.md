@@ -172,7 +172,7 @@ Well create the file in ~/.cloudflared/config.yml
    ingress:
     - hostname: testit.something.org
       service: http://localhost:8001
-    - service: http\_status:404
+    - service: http_status:404
    ```
 
 3. Save and exit:
