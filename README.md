@@ -23,30 +23,16 @@ Step-by-step instructions to configure a local service to run as a web app over 
 
    - Select your domain: something.org
 
-2. **Add a CNAME DNS Record**
+   - Click DNS
 
-   - Navigate to the **DNS** tab
-
-   - Click **Add record**
-
-      - **Type**: CNAME
-
-      - **Name**: testit
-
-      - **Target**: your-tunnel-name.cloudflareTunnel.com _(well fill this later, for now use a placeholder like_ placeholder.cloudflareTunnel.com_)_
-
-      - **TTL**: Auto
-
-      - **Proxy status**: Leave it **Proxied (orange cloud)**
-
-   >This step allows Cloudflare to route traffic for testit.something.org once your tunnel is ready.
+   >This step allows you to see your dns settings.
 
 #### Verification step 1
 
-You should see a new DNS record like:
+You may see your DNS records like (if you have any):
 
 ```txt
-Type: CNAME | Name: testit | Target: placeholder.cloudflareTunnel.com | Proxied: Yes
+Type: CNAME | Name: other | Target: something.cloudflareTunnel.com | Proxied: Yes
 ```
 
 ### Step 2: Install cloudflared on Ubuntu 24.04
