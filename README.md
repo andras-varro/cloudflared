@@ -207,7 +207,7 @@ This tells Cloudflare:
 
 Send traffic for testit.something.org through the tunnel testit-tunnel.
 
-Once this runs, Cloudflare will **update the DNS record automatically** to point to your tunnel (youll see the CNAME target change to something like 8e137011-ae9a-...cfargotunnel.com in the dashboard).
+Once this runs, Cloudflare will **update the DNS records automatically** to point to your tunnel (youll see the CNAME target created and the target is set to something like 8e137011-ae9a-...cfargotunnel.com in the dashboard).
 
 #### Verification setp 6
 
